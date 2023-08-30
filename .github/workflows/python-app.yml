@@ -62,6 +62,8 @@ jobs:
         
     - name: Deploy to EC2
       run: |
+        ssh deploy_ec2 "pip install pyclean"
+        ssh deploy_ec2 "pyclean --verbose ."
         ssh deploy_ec2 "mkdir temp/"
         ssh deploy_ec2 "git clone https://github.com/shandytp/smoke_detector_draft.git temp/"
         ssh deploy_ec2 "cd temp/ && sudo docker compose pull && sudo docker compose up -d"
