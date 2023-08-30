@@ -90,7 +90,7 @@ with st.form(key = "air_data_form"):
         # Create loading animation while predicting
         with st.spinner("Sending data to prediction server..."):
             # TODO: ganti pake nama service/ip address public AWS
-            res = requests.post("http://api_backend:8080/predict", json = raw_data).json()
+            res = requests.post("http://http://ec2-13-211-211-101.ap-southeast-2.compute.amazonaws.com:8080/predict", json = raw_data).json()
             
         # Parse the prediction result
         if res["error_msg"] != "":
